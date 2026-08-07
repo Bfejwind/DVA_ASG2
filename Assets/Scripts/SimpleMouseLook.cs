@@ -10,7 +10,7 @@ public class SimpleMouseLook : MonoBehaviour
     void Start()
     {
         // Locks the mouse cursor to the center of the game view
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void Update()

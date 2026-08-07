@@ -39,47 +39,43 @@ public class CameraRaycastHotspots : MonoBehaviour
 
         // 2. Perform the raycast calculation
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, maxDistance))
+        if (Physics.Raycast(ray, out hit, maxDistance, hotspotLayer))
         {
-            
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Hotspot"))
+            VideoHotspot hotspot = hit.collider.GetComponent<VideoHotspot>();
+            if (hotspot != currentHotspot)
             {
-                VideoHotspot hotspot = hit.collider.GetComponent<VideoHotspot>();
-                if (hotspot != currentHotspot)
-                {
-                    if (currentHotspot != null)
-                    {
-                        currentHotspot.SetHighlighted(false);
-                    }
-                    currentHotspot = hotspot;
-                    if (currentHotspot != null)
-                    {
-                        currentHotspot.SetHighlighted(true);
-                    }
-                }
-                
-                // Optional visual indicator: Draw green line in Scene view when hitting something
-                Debug.DrawLine(ray.origin, hit.point, Color.green);
-
-                // Check if the player clicked/tapped while looking at the hotspot
-                if (Mouse.current.leftButton.wasPressedThisFrame)
-                {
-                    // Attempt to trigger the event on the targeted hotspot
-                    if (hotspot != null)
-                    {
-                        hotspot.Interact();
-                    }
-                }
-            }
-            else
-            {
-                // Draw red line in Scene view if nothing is hit
-                Debug.DrawLine(ray.origin, ray.origin + ray.direction * maxDistance, Color.red);
                 if (currentHotspot != null)
                 {
                     currentHotspot.SetHighlighted(false);
-                    currentHotspot = null;
                 }
+                currentHotspot = hotspot;
+                if (currentHotspot != null)
+                {
+                    currentHotspot.SetHighlighted(true);
+                }
+            }
+            
+            // Optional visual indicator: Draw green line in Scene view when hitting something
+            Debug.DrawLine(ray.origin, hit.point, Color.green);
+
+            // Check if the player clicked/tapped while looking at the hotspot
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                // Attempt to trigger the event on the targeted hotspot
+                if (hotspot != null)
+                {
+                    hotspot.Interact();
+                }
+            }
+        }
+        else
+        {
+            // Draw red line in Scene view if nothing is hit
+            Debug.DrawLine(ray.origin, ray.origin + ray.direction * maxDistance, Color.red);
+            if (currentHotspot != null)
+            {
+                currentHotspot.SetHighlighted(false);
+                currentHotspot = null;
             }
         }
     }
