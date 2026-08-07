@@ -14,6 +14,7 @@ public class CameraRaycastHotspots : MonoBehaviour
     public bool centerOfScreenMode = true;
 
     private Camera cam;
+    private VideoHotspot currentHotspot;
 
     void Start()
     {
@@ -40,6 +41,20 @@ public class CameraRaycastHotspots : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxDistance, hotspotLayer))
         {
+            VideoHotspot hotspot = hit.collider.GetComponent<VideoHotspot>();
+            if (hotspot != currentHotspot)
+            {
+                if (currentHotspot != null)
+                {
+                    currentHotspot.SetHighlighted(false);
+                }
+                currentHotspot = hotspot;
+                if (currentHotspot != null)
+                {
+                    currentHotspot.SetHighlighted(true);
+                }
+            }
+            
             // Optional visual indicator: Draw green line in Scene view when hitting something
             Debug.DrawLine(ray.origin, hit.point, Color.green);
 
@@ -47,7 +62,6 @@ public class CameraRaycastHotspots : MonoBehaviour
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
                 // Attempt to trigger the event on the targeted hotspot
-                VideoHotspot hotspot = hit.collider.GetComponent<VideoHotspot>();
                 if (hotspot != null)
                 {
                     hotspot.Interact();
@@ -58,6 +72,11 @@ public class CameraRaycastHotspots : MonoBehaviour
         {
             // Draw red line in Scene view if nothing is hit
             Debug.DrawLine(ray.origin, ray.origin + ray.direction * maxDistance, Color.red);
+            if (currentHotspot != null)
+            {
+                currentHotspot.SetHighlighted(false);
+                currentHotspot = null;
+            }
         }
     }
 }
