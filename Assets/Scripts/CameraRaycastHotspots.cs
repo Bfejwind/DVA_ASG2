@@ -41,7 +41,8 @@ public class CameraRaycastHotspots : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
-            if (Physics.Raycast(ray, out hit, maxDistance, hotspotLayer))
+            
+            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Hotspot"))
             {
                 VideoHotspot hotspot = hit.collider.GetComponent<VideoHotspot>();
                 if (hotspot != currentHotspot)

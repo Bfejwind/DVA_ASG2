@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineAnimate
   m_Target: {fileID: 1734498336}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_LoopMode: 0
   m_Method: 0
   m_Duration: 0.2
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineAnimate
   m_Target: {fileID: 847430510}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_LoopMode: 0
   m_Method: 0
   m_Duration: 20
@@ -302,6 +302,20 @@ MonoBehaviour:
   m_ObjectForwardAxis: 2
   m_ObjectUpAxis: 1
   m_StartOffset: 0
+--- !u!114 &293839816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293839809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3325339595218bc49b8a06fd77436178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GhostBehaviour
+  L_R_spline: {fileID: 293839815}
+  R_L_spline: {fileID: 293839814}
 --- !u!1 &455215557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,6 +1419,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 293839816}
+    - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 293839815}
     - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       insertIndex: -1
@@ -1792,10 +1809,10 @@ SceneRoots:
   - {fileID: 5694941130478720058}
   - {fileID: 4770208818818719135}
   - {fileID: 4690032552788228522}
-  - {fileID: 636866118}
   - {fileID: 214031425}
   - {fileID: 1382326617}
   - {fileID: 994446825}
   - {fileID: 1837765132}
   - {fileID: 847430511}
   - {fileID: 1734498337}
+  - {fileID: 636866118}
