@@ -7,6 +7,7 @@ public class GhostSpawner : MonoBehaviour
     [SerializeField] private GameObject ghostPrefab;
     [SerializeField] private float spawnRate = 5.0f;
     private bool spawnStarted;
+    public bool stopSpawn;
     void Update()
     {
         if (!spawnStarted)
@@ -18,7 +19,7 @@ public class GhostSpawner : MonoBehaviour
 
     private IEnumerator SpawnGhost()
     {
-        while (true)
+        while (!stopSpawn)
         {
             Instantiate(ghostPrefab, spawnPoint.position, Quaternion.identity);
             yield return new WaitForSeconds(spawnRate);

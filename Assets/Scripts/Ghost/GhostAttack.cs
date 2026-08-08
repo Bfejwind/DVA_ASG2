@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class GhostAttack : MonoBehaviour
 {
+    private float lifeSpan = 20.0f;
     [SerializeField] private Transform player;
     [SerializeField] private float speed = 3.0f;
+    [SerializeField] private float damage = 50;
     private bool seen;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip ghostSpawnSFX;
@@ -19,6 +21,7 @@ public class GhostAttack : MonoBehaviour
     }
     private void Start()
     {
+        Destroy(gameObject,lifeSpan);
         //Play ghostSpawn
         audioSource.PlayOneShot(ghostSpawnSFX);
     }
@@ -46,7 +49,7 @@ public class GhostAttack : MonoBehaviour
     {
         if (other.TryGetComponent<PlayerHealth>(out PlayerHealth playerhp))
         {
-            playerhp.TakeDamage();
+            playerhp.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

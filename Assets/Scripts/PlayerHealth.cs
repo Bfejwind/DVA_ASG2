@@ -5,7 +5,6 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float currentHealth,maxHealth = 100f;
     [SerializeField] private Slider healthSlider;
-    [SerializeField] private float damageAmt = 50.0f;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip hurtSFX;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
         healthSlider.value = currentHealth;
     }
 
-    public void TakeDamage()
+    public void TakeDamage(float damageAmt)
     {
         audioSource.PlayOneShot(hurtSFX);
         currentHealth -= damageAmt;

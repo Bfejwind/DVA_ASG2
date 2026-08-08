@@ -10,8 +10,6 @@ public class PlayerUIHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        bonkerInv.SetActive(false);
-        keyCardInv.SetActive(false);
         bonkerMessage.SetActive(false);
         keyCardMessage.SetActive(false);
         exitFailedMessage.SetActive(false);
@@ -26,6 +24,7 @@ public class PlayerUIHandler : MonoBehaviour
     }
     public void NeedKeyCard()
     {
+
         exitFailedMessage.SetActive(true);
     }
 

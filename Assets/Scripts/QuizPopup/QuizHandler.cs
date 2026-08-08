@@ -9,6 +9,7 @@ public class QuizHandler : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip correctSFX;
     [SerializeField] private AudioClip wrongSFX;
+    [SerializeField] private PlayerHealth playerHp;
     private void Start()
     {
         correctTick.SetActive(false);
@@ -25,6 +26,7 @@ public class QuizHandler : MonoBehaviour
         else
         {
             //play wrong SFX
+            playerHp.TakeDamage(20.0f);
             audioSource.PlayOneShot(wrongSFX);
             correctTick.SetActive(false);
         }

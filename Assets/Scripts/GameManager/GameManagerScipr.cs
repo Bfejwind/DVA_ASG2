@@ -7,8 +7,18 @@ public class GameManagerScipr : MonoBehaviour
     public bool bonkerGotten;
     public bool keyCardGotten;
     public bool labUnlocked;
+    [SerializeField] private GameObject bonkerInv;
+    [SerializeField] private GameObject keyCardInv;
     private void Awake()
     {
+        if (bonkerGotten)
+        {
+            bonkerInv.SetActive(true);
+        }
+        if (keyCardInv)
+        {
+            keyCardInv.SetActive(true);
+        }
         if (Instance != this && Instance != null)
         {
             Destroy(gameObject);
@@ -32,5 +42,16 @@ public class GameManagerScipr : MonoBehaviour
     public void UnlockLab()
     {
         labUnlocked = true;
+    }
+    public void Escape()
+    {
+        if (keyCardGotten)
+        {
+            Debug.Log("Escaped");
+        }
+        else
+        {
+            
+        }
     }
 }
