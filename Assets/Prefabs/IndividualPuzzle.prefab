@@ -604,8 +604,8 @@ MonoBehaviour:
   answer: 9
   correctTick: {fileID: 4099012784254110944}
   audioSource: {fileID: 1241959511858062475}
-  correctSFX: {fileID: 0}
-  wrongSFX: {fileID: 0}
+  correctSFX: {fileID: 8300000, guid: 2b0ea4a5e9e4c044b928b2c98e33fd3f, type: 3}
+  wrongSFX: {fileID: 8300000, guid: 64a27be4692d7254bbbe6ef6883e6d55, type: 3}
 --- !u!82 &1241959511858062475
 AudioSource:
   m_ObjectHideFlags: 0

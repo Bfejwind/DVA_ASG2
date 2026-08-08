@@ -18,13 +18,14 @@ public class QuizHandler : MonoBehaviour
         int.TryParse(input.text,out int result);
         if (result == answer)
         {
+            audioSource.PlayOneShot(correctSFX);
             correctTick.SetActive(true);
             //Play Correct SFX
         }
         else
         {
             //play wrong SFX
-            Debug.Log("Wrong Answer");
+            audioSource.PlayOneShot(wrongSFX);
             correctTick.SetActive(false);
         }
     }

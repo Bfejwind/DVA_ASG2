@@ -8,6 +8,7 @@ public class CameraRaycastHotspots : MonoBehaviour
     public float maxDistance = 100f;
     [Tooltip("The Layer you assigned your Hotspots to.")]
     public LayerMask hotspotLayer;
+    public LayerMask ghostLayer;
 
     [Header("Targeting Mode")]
     [Tooltip("True: Raycasts from center of screen (VR/Crosshair). False: Raycasts from mouse cursor.")]
@@ -39,6 +40,11 @@ public class CameraRaycastHotspots : MonoBehaviour
 
         // 2. Perform the raycast calculation
         RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, maxDistance, ghostLayer))
+        {
+            GhostAttack ghost = hit.collider.GetComponent<GhostAttack>();
+            ghost.StartVanish();
+        }
         if (Physics.Raycast(ray, out hit, maxDistance, hotspotLayer))
         {
             VideoHotspot hotspot = hit.collider.GetComponent<VideoHotspot>();
