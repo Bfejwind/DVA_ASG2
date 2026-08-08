@@ -10,6 +10,16 @@ public class CameraControl : MonoBehaviour
     private float sensitivity = 1000f;
     private float yaw = 0f;
     private float pitch = 0f;
+    private void Start()
+    {
+        Vector3 angles = transform.eulerAngles;
+
+        yaw = angles.y;
+        pitch = angles.x;
+
+        if (pitch > 180f)
+            pitch -= 360f;
+    }
     private void Update()
     {
         HandleInput();

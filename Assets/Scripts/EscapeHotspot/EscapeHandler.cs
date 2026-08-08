@@ -11,6 +11,7 @@ public class EscapeHandler : MonoBehaviour
     [SerializeField] private AudioClip correctSFX;
     [SerializeField] private AudioClip wrongSFX;
     [SerializeField] private PlayerHealth playerHp;
+    [SerializeField] private GameObject lossPanel;
     public void StartCheckAnswer()
     {
         StartCoroutine(CheckAnswer());
@@ -18,7 +19,12 @@ public class EscapeHandler : MonoBehaviour
     public IEnumerator CheckAnswer()
     {
         int.TryParse(input.text,out int result);
-        if (result == answer)
+        if (!GameManagerScipr.Instance.bonkerGotten)
+        {
+            lossPanel.SetActive(true);
+            yield return null;
+        }
+        else if (result == answer)
         {
             //Play Correct SFX
             audioSource.PlayOneShot(correctSFX);

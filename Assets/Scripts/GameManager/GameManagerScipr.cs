@@ -21,7 +21,7 @@ public class GameManagerScipr : MonoBehaviour
         {
             bonkerInv.SetActive(true);
         }
-        if (keyCardInv)
+        if (keyCardGotten)
         {
             keyCardInv.SetActive(true);
         }
