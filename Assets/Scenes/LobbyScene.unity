@@ -1159,7 +1159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 787229978124306430, guid: e5cc33fcf47e7b1488b5e189777238b1, type: 3}
       propertyPath: onHotspotClicked.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadScene
+      value: StartLoadScene
       objectReference: {fileID: 0}
     - target: {fileID: 787229978124306430, guid: e5cc33fcf47e7b1488b5e189777238b1, type: 3}
       propertyPath: onHotspotClicked.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1889,6 +1889,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6282326852454747195, guid: 3c50f67e80498a7419db0a03d828bc13, type: 3}
+      propertyPath: bonkerInv
+      value: 
+      objectReference: {fileID: 2052187370}
+    - target: {fileID: 6282326852454747195, guid: 3c50f67e80498a7419db0a03d828bc13, type: 3}
+      propertyPath: keyCardInv
+      value: 
+      objectReference: {fileID: 1593835013}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2638,6 +2646,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6667e69455d96f0469fafa4b84a04e1a, type: 3}
+--- !u!1 &2052187370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1703354878333271172, guid: a98e84ce369ace8439a991fa3804bd99, type: 3}
+  m_PrefabInstance: {fileID: 1593835012}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2113990968
 GameObject:
   m_ObjectHideFlags: 0

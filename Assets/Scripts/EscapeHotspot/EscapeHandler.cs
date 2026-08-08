@@ -22,8 +22,8 @@ public class EscapeHandler : MonoBehaviour
         {
             //Play Correct SFX
             audioSource.PlayOneShot(correctSFX);
-            yield return new WaitForSeconds(2.0f);
-            GameManagerScipr.Instance.LoadScene(sceneToLoad);
+            yield return new WaitForSeconds(1.0f);
+            GameManagerScipr.Instance.StartLoadScene(sceneToLoad);
         }
         else
         {

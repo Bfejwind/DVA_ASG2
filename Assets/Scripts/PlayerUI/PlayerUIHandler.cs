@@ -24,8 +24,14 @@ public class PlayerUIHandler : MonoBehaviour
     }
     public void NeedKeyCard()
     {
-
-        exitFailedMessage.SetActive(true);
+        if (GameManagerScipr.Instance.keyCardGotten)
+        {
+            GameManagerScipr.Instance.Escape();
+        }
+        else
+        {
+            exitFailedMessage.SetActive(true);
+        }
     }
 
     

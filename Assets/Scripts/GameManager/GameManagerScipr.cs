@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,8 +10,13 @@ public class GameManagerScipr : MonoBehaviour
     public bool labUnlocked;
     [SerializeField] private GameObject bonkerInv;
     [SerializeField] private GameObject keyCardInv;
+    [SerializeField] private AudioSource SFXSource;
+    [SerializeField] private AudioClip footsteps;
+    [SerializeField] private AudioSource BGMSource;
+    [SerializeField] private AudioClip bgm;
     private void Awake()
     {
+        PlayBGM();
         if (bonkerGotten)
         {
             bonkerInv.SetActive(true);
@@ -27,8 +33,14 @@ public class GameManagerScipr : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    public void LoadScene(string sceneName)
+    public void StartLoadScene(string sceneName)
     {
+        StartCoroutine(LoadScene(sceneName));
+    }
+    public IEnumerator LoadScene(string sceneName)
+    {
+        SFXSource.PlayOneShot(footsteps);
+        yield return new WaitForSeconds(3.0f);
         SceneManager.LoadScene(sceneName);
     }
     public void BonkGet()
@@ -43,15 +55,18 @@ public class GameManagerScipr : MonoBehaviour
     {
         labUnlocked = true;
     }
+    public void PlayBGM()
+    {
+        BGMSource.clip = bgm;
+        BGMSource.loop = true;
+        BGMSource.Play();
+    }
     public void Escape()
     {
-        if (keyCardGotten)
-        {
-            Debug.Log("Escaped");
-        }
-        else
-        {
-            
-        }
+        StartLoadScene("Escaped");
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
