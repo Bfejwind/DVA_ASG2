@@ -1008,6 +1008,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   centerOfScreenMode: 1
+  audioSource: {fileID: 640453965}
+  clickSFX: {fileID: 8300000, guid: 330ebfc0d69826f44983fc4a6d830614, type: 3}
 --- !u!114 &640453962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2734,7 +2736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1780890607
 RectTransform:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class CameraRaycastHotspots : MonoBehaviour
 
     private Camera cam;
     private VideoHotspot currentHotspot;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip clickSFX;
 
     void Start()
     {
@@ -70,6 +72,7 @@ public class CameraRaycastHotspots : MonoBehaviour
                 // Attempt to trigger the event on the targeted hotspot
                 if (hotspot != null)
                 {
+                    audioSource.PlayOneShot(clickSFX);
                     hotspot.Interact();
                 }
             }

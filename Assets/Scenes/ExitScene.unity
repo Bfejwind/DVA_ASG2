@@ -975,6 +975,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   centerOfScreenMode: 1
+  audioSource: {fileID: 640453964}
+  clickSFX: {fileID: 8300000, guid: 330ebfc0d69826f44983fc4a6d830614, type: 3}
 --- !u!114 &640453962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1349,6 +1351,10 @@ PrefabInstance:
     - target: {fileID: 2096557691745193057, guid: 3d3177a36a6b3714f98f93e69f36f789, type: 3}
       propertyPath: m_Name
       value: LostPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2096557691745193057, guid: 3d3177a36a6b3714f98f93e69f36f789, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5175322300038165879, guid: 3d3177a36a6b3714f98f93e69f36f789, type: 3}
       propertyPath: m_Pivot.x
